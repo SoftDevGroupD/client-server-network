@@ -5,6 +5,7 @@ import json
 from dict2xml import dict2xml
 from cryptography.fernet import Fernet
 from functions import creat_dictionary,serialize,dump_json,dict_2_xml,send_text_to_server,send_file_to_server,creat_file,send_to_server,decrypt_file,load_key
+import os
 
 
 if __name__ == '__main__':
@@ -53,7 +54,7 @@ if __name__ == '__main__':
     if response == "json":
        class example_class:
          data = {
-            "user":{"name":"Luis",
+            "user":{"name":"TeamD",
                   "Subject":"SoftwareDevelopment"
             }
          }
@@ -78,6 +79,40 @@ if __name__ == '__main__':
         dictionary_2 = pickle.load(file_to_read)
         print(f'This is a_dict of the unpickled object for binary : {dictionary_2}')
      
-       
-       
+     # MADE CORRECTION LUIS
      
+    question = input("Are you Encrypting or Decrypting?: Type 1 for Encrypting and 2 for Decrypting ")
+    file_path = input('Enter the file path for the file decrypting: ')
+    
+    print(file_path)
+    
+    if os.path.exists(file_path):
+      print('The file exists')
+
+      with open(file_path, 'r', encoding='utf-8-sig') as file_encrypt:
+        lines = file_encrypt.readlines()
+        print(lines)
+        
+    else:
+      print('The specified file does NOT exist')
+
+    if question == '1' and os.path.exists(file_path):
+      def generate_key():
+        # key generation
+        key = Fernet.generate_key()
+        # string the key in a file
+        with open('filekey.key', 'wb') as filekey:
+            filekey.write(key)
+      generate_key()
+
+      def encrypt_file(): 
+        with open('filekey.key', 'rb') as filekey:
+            key = filekey.read()
+        fernet = Fernet(key)
+        with open(file_path, 'rb') as file:
+            original = file.read()
+        encrypted = fernet.encrypt(original)
+        with open(file_path, 'wb') as encrypted_file:
+            encrypted_file.write(encrypted)
+      encrypt_file()
+ 
