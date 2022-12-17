@@ -1,4 +1,4 @@
-# BUILDING A SERVER NETWORK
+# BUILDING A SERVER NETWORK.
 
 
 ## Table of Contents
