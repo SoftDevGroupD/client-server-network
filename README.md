@@ -14,14 +14,13 @@
 
 ## Description
 
-The building of a server network project is the final assignment of the software development module from the University of Liverpool and performed in groups. The software development module provided the comprehensive basics of python. Using what learnt in this module,  divided the tasks and proceeded with server development in the project. 
+A simple client-network server in Python has been developed adding different functionalities as message sending, creation of text files, serializing and deserializing dictionaries according to different formats (JSON, XML, or binary) and encrypting and decrypting some content. Additionally, some unit tests have been created to validate the adequate performance of the different functions.
 
 ## Technologies
 
 A list of technologies used within the project:
 * [Python](https://www.python.org/downloads/): Version 3.11.0 
 * [Visual Studio Code](https://visualstudio.microsoft.com/es/): Version: 1.73.v 
-* [Anaconda](https://www.anaconda.com/products/distribution): Version: 4.12.0 
 
 ## Installation
 ```bash
@@ -36,14 +35,34 @@ pip install paramiko
 ```bash
 pip install functions
 ```
+```bash
+pip install pickle
+```bash
+pip install json
+```bash
+pip install pickle
+```bash
+pip install socket
+```bash
+pip install pathlib 
+```bash
+pip install sys
+```bash
+pip install time
+
 
 ## Project
-This project consists of 5 different tasks.
+This project consists of 4 different Modules(server_a.py client_a.py unittest.py functions.py).
 
-1. Establish a simple server network.
-2. Create a dictionary, populate it, serialize it and send it to a server.
-3. Create a text file and send it to a server.
-4. Unit Test
+The modules server_a.py client_a.py and functions.py interact althogether to perform the following tasks
+
+1. Send Message to the server.
+2. Create a Text File
+3. Create a dictionary, populate it, serialize it.
+4. Encryption and Decryption of files
+
+The unittest.py module is used for. comparing the results of the functions as expected.
+
 5. Create a reports including Readme.md and requirements.txt
 
 Condition:
